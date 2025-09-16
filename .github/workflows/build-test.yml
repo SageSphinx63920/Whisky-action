@@ -57,7 +57,7 @@ jobs:
         xcodebuild -project Whisky.xcodeproj -scheme WhiskyThumbnail -configuration Release build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
     - name: Archive build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: whisky-build-artifacts
         path: |
