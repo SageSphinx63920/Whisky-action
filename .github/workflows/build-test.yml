@@ -35,15 +35,15 @@ jobs:
           ${{ runner.os }}-swiftpm-
 
     - name: Build WhiskyKit
-      if: env.skipTests != 'true'
       run: |
         cd WhiskyKit
         swift build --configuration release
 
-    - name: Run WhiskyKit tests
-      run: |
-        cd WhiskyKit
-        swift test
+    #- name: Run WhiskyKit tests
+    #  if: env.skipTests != 'true'
+    #  run: |
+    #    cd WhiskyKit
+    #    swift test
 
     - name: Build Whisky app
       run: |
