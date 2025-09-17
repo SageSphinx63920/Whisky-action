@@ -54,16 +54,15 @@ jobs:
 
     - name: Build Whisky app
       run: |
-        xcodebuild -project Whisky.xcodeproj -scheme Whisky -configuration Release build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        xcodebuild -project Whisky.xcodeproj -scheme Whisky -configuration Release build
 
     - name: Build WhiskyCmd
       run: |
-        xcodebuild -project Whisky.xcodeproj -scheme WhiskyCmd -configuration Release build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        xcodebuild -project Whisky.xcodeproj -scheme WhiskyCmd -configuration Release build
 
     - name: Build WhiskyThumbnail
       run: |
-        xcodebuild -project Whisky.xcodeproj -scheme WhiskyThumbnail -configuration Release build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-
+        xcodebuild -project Whisky.xcodeproj -scheme WhiskyThumbnail -configuration Release build
     - name: Archive build artifacts
       uses: actions/upload-artifact@v4
       with:
