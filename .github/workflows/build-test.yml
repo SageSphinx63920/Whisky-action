@@ -41,6 +41,7 @@ jobs:
 
     - name: Build WhiskyKit
       run: |
+        cd WhiskyKit
         swift build --configuration release
 
     #- name: Run WhiskyKit tests
