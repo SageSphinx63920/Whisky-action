@@ -13,13 +13,6 @@ on:
 
 jobs:
   build-and-test:
-    env:
-      CODE_SIGN_IDENTITY: "-"
-      CODE_SIGNING_REQUIRED: "YES"
-      CODE_SIGNING_ALLOWED: "YES"
-      DEVELOPMENT_TEAM: "" 
-      CODE_SIGN_STYLE: "Manual" 
-      PROVISIONING_PROFILE_SPECIFIER: ""
     runs-on: macos-latest
 
     steps:
@@ -29,7 +22,7 @@ jobs:
     - name: Set up Xcode
       uses: maxim-lobanov/setup-xcode@v1
       with:
-        xcode-version: latest-stable
+        xcode-version: '15.4'
 
     - name: Cache Swift packages
       uses: actions/cache@v3
@@ -54,15 +47,16 @@ jobs:
 
     - name: Build Whisky app
       run: |
-        xcodebuild -project Whisky.xcodeproj -scheme Whisky -configuration Release build
+        xcodebuild -project Whisky.xcodeproj -scheme Whisky -configuration Release build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
     - name: Build WhiskyCmd
       run: |
-        xcodebuild -project Whisky.xcodeproj -scheme WhiskyCmd -configuration Release build
+        xcodebuild -project Whisky.xcodeproj -scheme WhiskyCmd -configuration Release build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
     - name: Build WhiskyThumbnail
       run: |
-        xcodebuild -project Whisky.xcodeproj -scheme WhiskyThumbnail -configuration Release build
+        xcodebuild -project Whisky.xcodeproj -scheme WhiskyThumbnail -configuration Release build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
     - name: Archive build artifacts
       uses: actions/upload-artifact@v4
       with:
