@@ -14,10 +14,12 @@ on:
 jobs:
   build-and-test:
     env:
-      CODE_SIGN_IDENTITY: ""
-      CODE_SIGNING_REQUIRED: "NO"
-      CODE_SIGNING_ALLOWED: "NO"
-      OTHER_CODE_SIGN_FLAGS: ""
+      CODE_SIGN_IDENTITY: "-"
+      CODE_SIGNING_REQUIRED: "YES"
+      CODE_SIGNING_ALLOWED: "YES"
+      DEVELOPMENT_TEAM: "" 
+      CODE_SIGN_STYLE: "Manual" 
+      PROVISIONING_PROFILE_SPECIFIER: ""
     runs-on: macos-latest
 
     steps:
