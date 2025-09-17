@@ -36,8 +36,7 @@ jobs:
 
     - name: Build WhiskyKit
       run: |
-        cd WhiskyKit
-        swift build --configuration release
+        swift build --configuration release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
 
     #- name: Run WhiskyKit tests
     #  if: env.skipTests != 'true'
