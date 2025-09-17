@@ -13,6 +13,11 @@ on:
 
 jobs:
   build-and-test:
+    env:
+      CODE_SIGN_IDENTITY: ""
+      CODE_SIGNING_REQUIRED: "NO"
+      CODE_SIGNING_ALLOWED: "NO"
+      OTHER_CODE_SIGN_FLAGS: ""
     runs-on: macos-latest
 
     steps:
@@ -36,7 +41,7 @@ jobs:
 
     - name: Build WhiskyKit
       run: |
-        swift build --configuration release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+        swift build --configuration release
 
     #- name: Run WhiskyKit tests
     #  if: env.skipTests != 'true'
